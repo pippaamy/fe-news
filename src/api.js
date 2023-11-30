@@ -7,3 +7,11 @@ export const getArticles = () => {
       return data.articles;
     });
 };
+
+export const getArticleById = (article_id) => {
+  return axios
+    .get(`https://my-news-2d2d.onrender.com/api/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.article;
+    });
+};

@@ -15,19 +15,23 @@ const Articles = () => {
   return (
     <section>
       <ul>
-        {" "}
         {articles.map((article) => {
           return (
             <>
-              <li className="articles" key={article.article_id}>
-                <h2>{article.title}</h2>
-                <img className="image" src={article.article_img_url} />
-                <p className="date">
-                  {dateFormat(article.create_at, "mmmm dS, yyyy")}
-                </p>
-                <p className="author">{article.author}</p>
-              </li>
-              <br />
+              <Link
+                to={`/articles/${article.article_id}`}
+                key={article.article_id}
+              >
+                <li className="articles" key={article.article_id}>
+                  <h2>{article.title}</h2>
+                  <img className="image" src={article.article_img_url} />
+                  <p className="date">
+                    {dateFormat(article.create_at, "mmmm dS, yyyy")}
+                  </p>
+                  <p className="author">{article.author}</p>
+                </li>
+                <br />
+              </Link>
             </>
           );
         })}
