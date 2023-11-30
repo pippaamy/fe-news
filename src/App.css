@@ -4,39 +4,45 @@
   padding: 2rem;
   text-align: center;
 }
+.App {
+  background-color: #fcf4d9;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: min-content auto auto;
+  margin: auto;
+}
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
 
-.logo {
-  height: 6em;
+h1 {
+  font-size: 3.5em;
+  line-height: 1.1;
+  color: #f67280;
+  text-align: center;
+}
+
+.articles {
+  list-style-type: none;
+  background-color: #f8b595;
+  border-radius: 7em;
   padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.author {
+  font-size: large;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bolder;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.date {
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bolder;
 }
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.image {
+  width: 30rem;
 }
