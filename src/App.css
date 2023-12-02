@@ -38,6 +38,15 @@ h1 {
   font-weight: bolder;
 }
 
+.votes {
+  font-size: large;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: bolder;
+}
+.voteButton {
+  padding: 10px;
+  border-radius: 20px;
+}
 .date {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-weight: bolder;

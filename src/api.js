@@ -22,7 +22,13 @@ export const getComments = (article_id) => {
       `https://my-news-2d2d.onrender.com/api/articles/${article_id}/comments`
     )
     .then(({ data }) => {
-      console.log(data.comments);
       return data.comments;
     });
+};
+
+export const patchArticle = (article_id, amount) => {
+  return axios.patch(
+    `https://my-news-2d2d.onrender.com/api/articles/${article_id}`,
+    { inc_votes: amount }
+  );
 };
