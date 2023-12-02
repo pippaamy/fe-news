@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import dateFormat from "dateformat";
 import Comments from "./Comments";
+import Votes from "./Votes";
 
 const ArticleCard = () => {
   const { article_id } = useParams();
@@ -23,6 +24,10 @@ const ArticleCard = () => {
         <p className="date">{dateFormat(article.create_at, "mmmm dS, yyyy")}</p>
         <p className="author">{article.author}</p>
       </article>
+      <div>
+        {" "}
+        <Votes article={article} />
+      </div>
       <section>
         <Comments />
       </section>
