@@ -26,7 +26,7 @@ const Articles = () => {
                   <h2>{article.title}</h2>
                   <img className="image" src={article.article_img_url} />
                   <p className="date">
-                    {dateFormat(article.create_at, "mmmm dS, yyyy")}
+                    {dateFormat(article.created_at, "mmmm dS, yyyy")}
                   </p>
                   <p className="author">{article.author}</p>
                 </li>

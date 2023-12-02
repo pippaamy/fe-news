@@ -15,3 +15,14 @@ export const getArticleById = (article_id) => {
       return data.article;
     });
 };
+
+export const getComments = (article_id) => {
+  return axios
+    .get(
+      `https://my-news-2d2d.onrender.com/api/articles/${article_id}/comments`
+    )
+    .then(({ data }) => {
+      console.log(data.comments);
+      return data.comments;
+    });
+};
