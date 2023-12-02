@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { getArticleById } from "../api";
 import dateFormat from "dateformat";
+import Comments from "./Comments";
 
 const ArticleCard = () => {
   const { article_id } = useParams();
@@ -14,13 +15,18 @@ const ArticleCard = () => {
     });
   }, [article_id]);
   return (
-    <article className="articles">
-      <h2>{article.title}</h2>
-      <p>{article.body}</p>
-      <img className="image" src={article.article_img_url} />
-      <p className="date">{dateFormat(article.create_at, "mmmm dS, yyyy")}</p>
-      <p className="author">{article.author}</p>
-    </article>
+    <>
+      <article className="articles">
+        <h2>{article.title}</h2>
+        <p>{article.body}</p>
+        <img className="image" src={article.article_img_url} />
+        <p className="date">{dateFormat(article.create_at, "mmmm dS, yyyy")}</p>
+        <p className="author">{article.author}</p>
+      </article>
+      <section>
+        <Comments />
+      </section>
+    </>
   );
 };
 
