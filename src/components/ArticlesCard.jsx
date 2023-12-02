@@ -4,7 +4,6 @@ import { getArticleById } from "../api";
 import dateFormat from "dateformat";
 import Comments from "./Comments";
 import Votes from "./Votes";
-import CommentBox from "./CommentBox";
 
 const ArticleCard = () => {
   const { article_id } = useParams();
@@ -30,8 +29,7 @@ const ArticleCard = () => {
         <Votes article={article} />
       </div>
       <section>
-        <CommentBox article={article} />
-        <Comments />
+        <Comments article={article} />
       </section>
     </>
   );
