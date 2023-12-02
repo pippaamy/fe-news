@@ -32,3 +32,11 @@ export const patchArticle = (article_id, amount) => {
     { inc_votes: amount }
   );
 };
+
+export const getUsers = () => {
+  return axios
+    .get("https://my-news-2d2d.onrender.com/api/users")
+    .then(({ data }) => {
+      return data.users;
+    });
+};
