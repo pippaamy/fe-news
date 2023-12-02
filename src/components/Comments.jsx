@@ -2,9 +2,12 @@ import { useEffect, useState } from "react";
 import { getComments } from "../api";
 import { useParams } from "react-router-dom";
 import dateFormat from "dateformat";
+import NewComment from "./newComment";
+import CommentBox from "./CommentBox";
 
-const Comments = () => {
+const Comments = ({ article }) => {
   const [comments, setComments] = useState([]);
+  const [newComment, setNewComment] = useState({});
   const { article_id } = useParams();
 
   useEffect(() => {
@@ -15,7 +18,16 @@ const Comments = () => {
 
   return (
     <section>
+      <CommentBox
+        article={article}
+        newComment={newComment}
+        setNewComment={setNewComment}
+      />
       <ul>
+        <li className="comments">
+          <NewComment newComment={newComment} />
+        </li>
+        <br />
         {comments.map((comment) => {
           return (
             <>

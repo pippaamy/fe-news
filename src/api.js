@@ -40,3 +40,14 @@ export const getUsers = () => {
       return data.users;
     });
 };
+
+export const postComments = (article_id, comment) => {
+  return axios
+    .post(
+      `https://my-news-2d2d.onrender.com/api/articles/${article_id}/comments`,
+      comment
+    )
+    .then(({ data }) => {
+      return data.newComment;
+    });
+};
