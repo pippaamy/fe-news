@@ -1,8 +1,10 @@
 import axios from "axios";
 
-export const getArticles = (topic = "") => {
+export const getArticles = (topic = "", sortby, order) => {
   return axios
-    .get(`https://my-news-2d2d.onrender.com/api/articles?topic=${topic}`)
+    .get(
+      `https://my-news-2d2d.onrender.com/api/articles?topic=${topic}&sort_by=${sortby}&order=${order}`
+    )
     .then(({ data }) => {
       return data.articles;
     });

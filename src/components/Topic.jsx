@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { getTopics } from "../api";
 import { useNavigate } from "react-router";
 
-const Topic = ({ chosenTopic, setChosenTopic }) => {
+const Topic = ({ chosenTopic, setChosenTopic, order, sort }) => {
   const [topics, setTopics] = useState([]);
 
   useEffect(() => {
@@ -17,7 +17,10 @@ const Topic = ({ chosenTopic, setChosenTopic }) => {
 
     await setChosenTopic(event.target.value);
 
-    navigate(`/articles/?topic=${event.target.value}`, { replace: true });
+    navigate(
+      `/articles/?topic=${event.target.value}&sortby=${sort}&order=${order}`,
+      { replace: true }
+    );
   }
 
   return (

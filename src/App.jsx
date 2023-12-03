@@ -25,7 +25,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/articles" element={<Articles />}></Route>
-            <Route path="/articles/?topic=:topic"></Route>
+            {/* <Route path="/articles/?topic=:topic&sortby=:sortby&order=:order"></Route> */}
             <Route
               path="articles/:article_id"
               element={<ArticleCard />}
