@@ -2,18 +2,20 @@ import { useEffect, useState } from "react";
 import { getArticles } from "../api";
 import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
+import Topic from "./Topic";
 
 const Articles = () => {
   const [articles, setArticles] = useState([]);
-
+  const [chosenTopic, setChosenTopic] = useState("");
   useEffect(() => {
-    getArticles().then((articles) => {
+    getArticles(chosenTopic).then((articles) => {
       setArticles(articles);
     });
-  }, []);
+  }, [chosenTopic]);
 
   return (
     <section>
+      <Topic setChosenTopic={setChosenTopic} chosenTopic={chosenTopic} />
       <ul>
         {articles.map((article) => {
           return (

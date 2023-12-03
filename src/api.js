@@ -1,8 +1,8 @@
 import axios from "axios";
 
-export const getArticles = () => {
+export const getArticles = (topic = "") => {
   return axios
-    .get("https://my-news-2d2d.onrender.com/api/articles")
+    .get(`https://my-news-2d2d.onrender.com/api/articles?topic=${topic}`)
     .then(({ data }) => {
       return data.articles;
     });
@@ -49,5 +49,13 @@ export const postComments = (article_id, comment) => {
     )
     .then(({ data }) => {
       return data.newComment;
+    });
+};
+
+export const getTopics = () => {
+  return axios
+    .get("https://my-news-2d2d.onrender.com/api/topics")
+    .then((res) => {
+      return res.data;
     });
 };

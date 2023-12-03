@@ -58,3 +58,8 @@ h1 {
 .username_images {
   width: 3rem;
 }
+
+.dropdown {
+  padding: 5px;
+  border-radius: 10px;
+}

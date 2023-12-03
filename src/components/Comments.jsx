@@ -14,7 +14,7 @@ const Comments = ({ article }) => {
     getComments(article_id).then((comments) => {
       setComments(comments);
     });
-  }, [article_id]);
+  }, [newComment]);
 
   return (
     <section>
