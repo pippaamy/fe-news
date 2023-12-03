@@ -61,3 +61,11 @@ export const getTopics = () => {
       return res.data;
     });
 };
+
+export const deleteComment = (comment_id) => {
+  return axios
+    .delete(`https://my-news-2d2d.onrender.com/api/comments/${comment_id}`)
+    .then((res) => {
+      return res.data;
+    });
+};

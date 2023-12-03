@@ -2,7 +2,7 @@ import { useContext, useState } from "react";
 import { postComments } from "../api";
 import { UserContext } from "./User";
 
-const CommentBox = ({ article, setNewComment, newComment }) => {
+const CommentBox = ({ article, setNewComment }) => {
   const id = article.article_id;
   const { currentUser } = useContext(UserContext);
 
@@ -31,7 +31,7 @@ const CommentBox = ({ article, setNewComment, newComment }) => {
     <section>
       <form onSubmit={postComment}>
         <textarea
-          defaultValue="Leave a comment!"
+          placeholder="Leave a comment!"
           id="commentBox"
           name="body"
           rows="6"
