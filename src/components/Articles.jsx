@@ -5,7 +5,9 @@ import dateFormat from "dateformat";
 import Topic from "./Topic";
 import Sort from "./Sort";
 
-const Articles = () => {
+import Post from "./Post";
+
+const Articles = ({ topics, setTopics }) => {
   const [articles, setArticles] = useState([]);
   const [chosenTopic, setChosenTopic] = useState("");
   const [sort, setSort] = useState("created_at");
@@ -39,17 +41,17 @@ const Articles = () => {
         chosenTopic={chosenTopic}
         sort={sort}
         order={order}
+        topics={topics}
+        setTopics={setTopics}
       />
       <Sort sort={sort} setSort={setSort} order={order} setOrder={setOrder} />
+      <Post topics={topics} />
       <ul>
         {articles.map((article) => {
           return (
             <>
-              <Link
-                to={`/articles/${article.article_id}`}
-                key={article.article_id}
-              >
-                <li className="articles" key={article.article_id}>
+              <Link to={`/articles/${article.article_id}`}>
+                <li key={article.article_id} className="articles">
                   <h2>{article.title}</h2>
                   <img className="image" src={article.article_img_url} />
                   <p className="date">

@@ -9,6 +9,7 @@ import ChangeUser from "./components/ChangeUser";
 import { UserContext } from "./components/User";
 import { useState } from "react";
 import ErrorPage from "./components/ErrorPage";
+import PostArticle from "./components/PostArticle";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -17,6 +18,8 @@ function App() {
     avatar_url:
       "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
   });
+  const [topics, setTopics] = useState([]);
+
   return (
     <>
       <div className="App">
@@ -25,13 +28,20 @@ function App() {
           <Navigation />
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/articles" element={<Articles />}></Route>
-            {/* <Route path="/articles/?topic=:topic&sortby=:sortby&order=:order"></Route> */}
+            <Route
+              path="/articles"
+              element={<Articles topics={topics} setTopics={setTopics} />}
+            ></Route>
+
             <Route
               path="articles/:article_id"
               element={<ArticleCard />}
             ></Route>
             <Route path="/users" element={<ChangeUser />}></Route>
+            <Route
+              path="/post"
+              element={<PostArticle topics={topics} />}
+            ></Route>
             <Route path="/*" element={<ErrorPage />}></Route>
           </Routes>
         </UserContext.Provider>
