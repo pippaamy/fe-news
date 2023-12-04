@@ -5,6 +5,7 @@ import dateFormat from "dateformat";
 import NewComment from "./NewComment";
 import CommentBox from "./CommentBox";
 import { UserContext } from "./User";
+import CommentVotes from "./CommentVotes";
 
 const Comments = ({ article }) => {
   const [comments, setComments] = useState([]);
@@ -53,14 +54,20 @@ const Comments = ({ article }) => {
                 <h2>{comment.author}</h2>
                 <p>{comment.body}</p>
                 <p>{dateFormat(comment.created_at, "mmmm dS, yyyy")}</p>
+                {currentUser.username !== comment.author && (
+                  <CommentVotes comment={comment} />
+                )}
                 {currentUser.username === comment.author && (
-                  <button
-                    className="delete"
-                    id={comment.comment_id}
-                    onClick={handleClick(comment)}
-                  >
-                    Delete
-                  </button>
+                  <>
+                    <p className="votes">Votes : {comment.votes}</p>
+                    <button
+                      className="delete"
+                      id={comment.comment_id}
+                      onClick={handleClick(comment)}
+                    >
+                      Delete
+                    </button>
+                  </>
                 )}
               </li>
               <br />

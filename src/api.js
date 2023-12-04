@@ -69,3 +69,10 @@ export const deleteComment = (comment_id) => {
       return res.data;
     });
 };
+
+export const patchComment = (comment_id, amount) => {
+  return axios.patch(
+    `https://my-news-2d2d.onrender.com/api/comments/${comment_id}`,
+    { inc_votes: amount }
+  );
+};
