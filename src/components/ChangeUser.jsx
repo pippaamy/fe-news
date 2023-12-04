@@ -4,14 +4,29 @@ import { UserContext } from "./User";
 
 const ChangeUser = () => {
   const [users, setUsers] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const { setCurrentUser } = useContext(UserContext);
+  const [err, setErr] = useState(null);
 
   useEffect(() => {
-    getUsers().then((users) => {
-      setUsers(users);
-    });
+    getUsers()
+      .then((users) => {
+        setUsers(users);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setErr(true);
+        setIsLoading(false);
+      });
   }, []);
 
+  if (err)
+    return (
+      <p className="loading-error">
+        Sorry there has been a problem, please try again!
+      </p>
+    );
+  if (isLoading) return <p className="loading-errors">Loading Users...</p>;
   return (
     <section>
       <ul className="user">

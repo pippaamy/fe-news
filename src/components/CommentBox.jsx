@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { postComments } from "../api";
 import { UserContext } from "./User";
 
@@ -21,7 +21,7 @@ const CommentBox = ({ article, setNewComment }) => {
       .catch(() => {
         setNewComment({
           author: currentUser.username,
-          body: "Please try again later!",
+          body: "Please try again",
         });
       });
 

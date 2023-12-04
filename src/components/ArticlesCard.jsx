@@ -9,12 +9,29 @@ const ArticleCard = () => {
   const { article_id } = useParams();
 
   const [article, setArticle] = useState({});
+  const [err, setErr] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    getArticleById(article_id).then((article) => {
-      setArticle(article);
-    });
+    getArticleById(article_id)
+      .then((article) => {
+        setArticle(article);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setErr(true);
+        setIsLoading(false);
+      });
   }, [article_id]);
+
+  if (err)
+    return (
+      <p className="loading-error">
+        This article does not exist, please try another
+      </p>
+    );
+  if (isLoading) return <p className="loading-errors">Loading Article...</p>;
+
   return (
     <>
       <article className="articles">
