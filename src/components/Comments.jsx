@@ -29,7 +29,6 @@ const Comments = ({ article }) => {
     };
   };
 
-  console.log(currentUser);
   useEffect(() => {
     getComments(article_id).then((comments) => {
       setComments(comments);

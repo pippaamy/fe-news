@@ -76,3 +76,17 @@ export const patchComment = (comment_id, amount) => {
     { inc_votes: amount }
   );
 };
+
+export const postArticle = (author, title, body, topic, article_img_url) => {
+  return axios
+    .post("https://my-news-2d2d.onrender.com/api/articles", {
+      author: author.username,
+      title: title,
+      body: body,
+      topic: topic,
+      article_img_url: article_img_url,
+    })
+    .then(({ data }) => {
+      return data.newArticle;
+    });
+};
