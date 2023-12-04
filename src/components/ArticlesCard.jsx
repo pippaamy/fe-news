@@ -40,9 +40,9 @@ const ArticleCard = () => {
         <img className="image" src={article.article_img_url} />
         <p className="date">{dateFormat(article.create_at, "mmmm dS, yyyy")}</p>
         <p className="author">{article.author}</p>
+        <p> Comments: {article.comment_count}</p>
       </article>
       <div>
-        {" "}
         <Votes article={article} />
       </div>
       <section>

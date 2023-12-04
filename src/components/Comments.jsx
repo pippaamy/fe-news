@@ -29,6 +29,7 @@ const Comments = ({ article }) => {
     };
   };
 
+  console.log(currentUser);
   useEffect(() => {
     getComments(article_id).then((comments) => {
       setComments(comments);
@@ -52,6 +53,7 @@ const Comments = ({ article }) => {
             <>
               <li className="comments" key={comment.comment_id}>
                 <h2>{comment.author}</h2>
+
                 <p>{comment.body}</p>
                 <p>{dateFormat(comment.created_at, "mmmm dS, yyyy")}</p>
                 {currentUser.username !== comment.author && (
@@ -59,6 +61,11 @@ const Comments = ({ article }) => {
                 )}
                 {currentUser.username === comment.author && (
                   <>
+                    <img
+                      className="username"
+                      src={currentUser.avatar_url}
+                      alt={currentUser.username}
+                    ></img>
                     <p className="votes">Votes : {comment.votes}</p>
                     <button
                       className="delete"
