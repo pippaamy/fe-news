@@ -8,6 +8,7 @@ import Navigation from "./components/Navigation";
 import ChangeUser from "./components/ChangeUser";
 import { UserContext } from "./components/User";
 import { useState } from "react";
+import ErrorPage from "./components/ErrorPage";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -31,6 +32,7 @@ function App() {
               element={<ArticleCard />}
             ></Route>
             <Route path="/users" element={<ChangeUser />}></Route>
+            <Route path="/*" element={<ErrorPage />}></Route>
           </Routes>
         </UserContext.Provider>
       </div>

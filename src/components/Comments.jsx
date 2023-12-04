@@ -11,6 +11,7 @@ const Comments = ({ article }) => {
   const [newComment, setNewComment] = useState({});
   const { article_id } = useParams();
   const { currentUser } = useContext(UserContext);
+  const [isLoading, setIsLoading] = useState(true);
 
   const refreshPage = () => {
     window.parent.location = window.parent.location.href;
@@ -19,7 +20,7 @@ const Comments = ({ article }) => {
   const handleClick = (comment) => {
     return function () {
       if (window.confirm("This comment will be deleted, is that okay?")) {
-        deleteComment(comment.comment_id).then((res) => {
+        deleteComment(comment.comment_id).then(() => {
           alert("Comment deleted");
           refreshPage();
         });
@@ -30,9 +31,10 @@ const Comments = ({ article }) => {
   useEffect(() => {
     getComments(article_id).then((comments) => {
       setComments(comments);
+      setIsLoading(false);
     });
   }, [article_id]);
-
+  if (isLoading) return <p className="loading-errors">Loading comments...</p>;
   return (
     <section>
       <CommentBox

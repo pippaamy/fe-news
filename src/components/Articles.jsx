@@ -10,12 +10,28 @@ const Articles = () => {
   const [chosenTopic, setChosenTopic] = useState("");
   const [sort, setSort] = useState("created_at");
   const [order, setOrder] = useState("ASC");
+  const [isLoading, setIsLoading] = useState(true);
+  const [err, setErr] = useState(null);
+
   useEffect(() => {
-    getArticles(chosenTopic, sort, order).then((articles) => {
-      setArticles(articles);
-    });
+    getArticles(chosenTopic, sort, order)
+      .then((articles) => {
+        setArticles(articles);
+        setIsLoading(false);
+      })
+      .catch(() => {
+        setErr(true);
+        setIsLoading(false);
+      });
   }, [chosenTopic, sort, order]);
 
+  if (isLoading) return <p className="loading-errors">Loading Articles...</p>;
+  if (err)
+    return (
+      <p className="loading-errors">
+        Sorry there has been a problem, please try again!
+      </p>
+    );
   return (
     <section>
       <Topic
