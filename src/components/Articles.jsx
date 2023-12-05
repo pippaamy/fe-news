@@ -45,7 +45,7 @@ const Articles = ({ topics, setTopics }) => {
         setTopics={setTopics}
       />
       <Sort sort={sort} setSort={setSort} order={order} setOrder={setOrder} />
-      <Post topics={topics} />
+
       <ul>
         {articles.map((article) => {
           return (

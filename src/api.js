@@ -90,3 +90,14 @@ export const postArticle = (author, title, body, topic, article_img_url) => {
       return data.newArticle;
     });
 };
+
+export const postTopic = (topicSlug, topicDescription) => {
+  return axios
+    .post("https://my-news-2d2d.onrender.com/api/topics", {
+      slug: topicSlug,
+      description: topicDescription,
+    })
+    .then(({ data }) => {
+      return data.newTopic;
+    });
+};

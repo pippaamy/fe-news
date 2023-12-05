@@ -16,6 +16,9 @@ const Navigation = () => {
         <Link className="userLink" to="/users">
           <p>Users</p>
         </Link>
+        <Link className="postLink" to="/post">
+          Post
+        </Link>
       </nav>
       <h2 className="currentUser_text">
         You are logged in as {currentUser.username}
