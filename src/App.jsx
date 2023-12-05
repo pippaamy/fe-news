@@ -7,9 +7,10 @@ import ArticleCard from "./components/ArticlesCard";
 import Navigation from "./components/Navigation";
 import ChangeUser from "./components/ChangeUser";
 import { UserContext } from "./components/User";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import ErrorPage from "./components/ErrorPage";
-import PostArticle from "./components/PostArticle";
+import { getTopics } from "./api";
+import Post from "./components/Post";
 
 function App() {
   const [currentUser, setCurrentUser] = useState({
@@ -19,6 +20,11 @@ function App() {
       "https://vignette.wikia.nocookie.net/mrmen/images/d/d6/Mr-Tickle-9a.png/revision/latest?cb=20180127221953",
   });
   const [topics, setTopics] = useState([]);
+  useEffect(() => {
+    getTopics().then(({ topics }) => {
+      setTopics(topics);
+    });
+  }, [topics]);
 
   return (
     <>
@@ -38,10 +44,7 @@ function App() {
               element={<ArticleCard />}
             ></Route>
             <Route path="/users" element={<ChangeUser />}></Route>
-            <Route
-              path="/post"
-              element={<PostArticle topics={topics} />}
-            ></Route>
+            <Route path="/post" element={<Post topics={topics} />}></Route>
             <Route path="/*" element={<ErrorPage />}></Route>
           </Routes>
         </UserContext.Provider>

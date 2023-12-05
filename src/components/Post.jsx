@@ -1,9 +1,12 @@
-import { Link } from "react-router-dom";
-const Post = () => {
+import PostArticle from "./PostArticle";
+import PostTopic from "./PostTopic";
+const Post = ({ topics }) => {
   return (
-    <Link className="postLink" to="/post">
-      Post
-    </Link>
+    <>
+      <PostArticle topics={topics} />
+      <br />
+      <PostTopic topics={topics} />
+    </>
   );
 };
 

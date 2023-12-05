@@ -1,20 +1,6 @@
-import { useEffect, useState } from "react";
-import { getTopics } from "../api";
 import { useNavigate } from "react-router";
 
-const Topic = ({
-  chosenTopic,
-  setChosenTopic,
-  order,
-  sort,
-  topics,
-  setTopics,
-}) => {
-  useEffect(() => {
-    getTopics().then(({ topics }) => {
-      setTopics(topics);
-    });
-  }, [topics]);
+const Topic = ({ chosenTopic, setChosenTopic, order, sort, topics }) => {
   let navigate = useNavigate();
 
   async function handleChange(event) {
