@@ -1,15 +1,3 @@
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-
-body {
-  background-color: #fcf4d9;
-  padding: 20px;
-}
-@media only screen and (min-width: 600px) {
-  .App {
-    grid-template-rows: min-content auto;
-  }
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

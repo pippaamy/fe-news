@@ -22,13 +22,15 @@ const PostTopic = ({ topics }) => {
 
   return (
     <section>
-      <h3> New Topic</h3>
-      <form onSubmit={handleSumbit}>
+      <h3 className="text-[#C06C84] p-3"> New Topic:</h3>
+      <form className="rounded-xl p-3  bg-[#F8B595]" onSubmit={handleSumbit}>
         <label> Topic name: </label>
         <input onChange={handleSlugChange}></input>
         <label> Topic description: </label>
         <input onChange={handleDescriptionChange}></input>
-        <button>Submit</button>
+        <button className="bg-[#F67280] font-mono  rounded-xl p-2">
+          Submit
+        </button>
       </form>
       <section>{topicSuccess}</section>
     </section>

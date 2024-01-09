@@ -34,19 +34,23 @@ const ArticleCard = () => {
 
   return (
     <>
-      <article className="articles">
-        <h2>{article.title}</h2>
-        <p>{article.body}</p>
-        <img className="image" src={article.article_img_url} />
-        <p className="date">{dateFormat(article.create_at, "mmmm dS, yyyy")}</p>
-        <p className="author">{article.author}</p>
-        <p> Comments: {article.comment_count}</p>
-      </article>
-      <div>
-        <Votes article={article} />
-      </div>
-      <section>
-        <Comments article={article} />
+      <section className="p-5">
+        <article className="text-xl tracking-tight font-medium text-justify rounded-xl p-3  bg-[#F8B595] ">
+          <h2>{article.title}</h2>
+          <p>{article.body}</p>
+          <img className="image" src={article.article_img_url} />
+          <p className="date">
+            {dateFormat(article.create_at, "mmmm dS, yyyy")}
+          </p>
+          <p className="author">{article.author}</p>
+          <p> Comments: {article.comment_count}</p>
+        </article>
+        <div>
+          <Votes article={article} />
+        </div>
+        <section>
+          <Comments article={article} />
+        </section>
       </section>
     </>
   );
