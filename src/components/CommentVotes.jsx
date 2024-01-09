@@ -24,7 +24,7 @@ const CommentVotes = ({ comment }) => {
     <div>
       <p className="votes">Votes : {comment.votes + votes}</p>
       <button
-        className="voteButton"
+        className="bg-[#F67280] font-mono  rounded-xl p-2"
         disabled={disabled}
         onClick={() => {
           upVote(comment.comment_id, true);

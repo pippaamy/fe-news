@@ -5,8 +5,6 @@ import dateFormat from "dateformat";
 import Topic from "./Topic";
 import Sort from "./Sort";
 
-import Post from "./Post";
-
 const Articles = ({ topics, setTopics }) => {
   const [articles, setArticles] = useState([]);
   const [chosenTopic, setChosenTopic] = useState("");
@@ -14,9 +12,11 @@ const Articles = ({ topics, setTopics }) => {
   const [order, setOrder] = useState("ASC");
   const [isLoading, setIsLoading] = useState(true);
   const [err, setErr] = useState(null);
+  const [page, setPage] = useState(1);
+  const [limit, setLimit] = useState(10);
 
   useEffect(() => {
-    getArticles(chosenTopic, sort, order)
+    getArticles(chosenTopic, sort, order, page)
       .then((articles) => {
         setArticles(articles);
         setIsLoading(false);
@@ -25,7 +25,7 @@ const Articles = ({ topics, setTopics }) => {
         setErr(true);
         setIsLoading(false);
       });
-  }, [chosenTopic, sort, order]);
+  }, [chosenTopic, sort, order, page, limit]);
 
   if (isLoading) return <p className="loading-errors">Loading Articles...</p>;
   if (err)
@@ -35,7 +35,7 @@ const Articles = ({ topics, setTopics }) => {
       </p>
     );
   return (
-    <section>
+    <section className="p-5">
       <Topic
         setChosenTopic={setChosenTopic}
         chosenTopic={chosenTopic}
@@ -51,7 +51,10 @@ const Articles = ({ topics, setTopics }) => {
           return (
             <>
               <Link to={`/articles/${article.article_id}`}>
-                <li key={article.article_id} className="articles">
+                <li
+                  key={article.article_id}
+                  className="text-xl tracking-tight font-medium text-justify rounded-xl p-3  bg-[#F8B595]"
+                >
                   <h2>{article.title}</h2>
                   <img className="image" src={article.article_img_url} />
                   <p className="date">

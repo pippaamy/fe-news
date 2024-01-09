@@ -16,7 +16,11 @@ const Topic = ({ chosenTopic, setChosenTopic, order, sort, topics }) => {
 
   return (
     <div>
-      <select className="dropdown" value={chosenTopic} onChange={handleChange}>
+      <select
+        className="p-2 inline-flex  justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        value={chosenTopic}
+        onChange={handleChange}
+      >
         <option value="">ALL</option>
         {topics.map((topics) => {
           return (

@@ -21,13 +21,21 @@ const Sort = ({ setSort, sort, order, setOrder }) => {
   }
   return (
     <div>
-      <select className="sortby" value={sort} onChange={handleChange}>
+      <select
+        className="p-2 inline-flex  justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        value={sort}
+        onChange={handleChange}
+      >
         <option value="author">Author</option>
         <option value="created_at">Date</option>
         <option value="title">Title</option>
         <option value="votes">Votes</option>
       </select>
-      <select className="order" value={order} onChange={handleOrder}>
+      <select
+        className="p-2 inline-flex  justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        value={order}
+        onChange={handleOrder}
+      >
         <option value="ASC">Ascending</option>
         <option value="DESC">Descending</option>
       </select>

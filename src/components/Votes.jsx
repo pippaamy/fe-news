@@ -24,7 +24,7 @@ const Votes = ({ article }) => {
     <div>
       <p className="votes">Votes : {article.votes + votes}</p>
       <button
-        className="voteButton"
+        className="bg-[#F67280] font-mono  rounded-xl p-2"
         disabled={disabled}
         onClick={() => {
           upVote(article.article_id, true);

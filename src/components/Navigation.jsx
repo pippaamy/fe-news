@@ -6,28 +6,30 @@ const Navigation = () => {
   const { currentUser } = useContext(UserContext);
   return (
     <section>
-      <nav className="nav">
+      <nav className="flex items-center justify-between flex-wrap bg-[#C06C84] p-6 font-mono font-bold">
         <Link className="navlink" to="/">
-          <p> Home</p>
+          <p> Home </p>
         </Link>
         <Link className="navlink" to="/articles">
-          <p> Articles</p>
+          <p> Articles </p>
         </Link>
         <Link className="userLink" to="/users">
-          <p>Users</p>
+          <p> Users </p>
         </Link>
         <Link className="postLink" to="/post">
           Post
         </Link>
       </nav>
-      <h2 className="currentUser_text">
-        You are logged in as {currentUser.username}
-      </h2>
-      <img
-        className="username_images"
-        src={currentUser.avatar_url}
-        alt={currentUser.username}
-      />
+      <section className="text-right p-5  ">
+        <h2 className="font-mono ">
+          You are logged in as {currentUser.username}
+        </h2>
+        <img
+          className="p-3 w-24 flex justify-right"
+          src={currentUser.avatar_url}
+          alt={currentUser.username}
+        />
+      </section>
     </section>
   );
 };

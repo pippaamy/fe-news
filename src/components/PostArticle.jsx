@@ -34,8 +34,8 @@ const PostArticle = ({ topics }) => {
   };
   return (
     <section>
-      <h3>New Article</h3>
-      <form onSubmit={handleSubmit}>
+      <h3 className="text-[#C06C84] p-3">New Article:</h3>
+      <form className="rounded-xl p-3  bg-[#F8B595]" onSubmit={handleSubmit}>
         <label> Article Title: </label>
         <input onChange={handleTitleChange}></input>
         <label> Article Body: </label>
@@ -58,7 +58,9 @@ const PostArticle = ({ topics }) => {
             })}
           </select>
         </section>
-        <button>Submit</button>
+        <button className="bg-[#F67280] font-mono  rounded-xl p-2">
+          Submit
+        </button>
       </form>
     </section>
   );

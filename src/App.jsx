@@ -1,5 +1,4 @@
 import { Route, Routes } from "react-router-dom";
-import "./App.css";
 import Header from "./components/Header";
 import Home from "./components/Home";
 import Articles from "./components/Articles";
@@ -28,7 +27,7 @@ function App() {
 
   return (
     <>
-      <div className="App">
+      <div className="bg-[#FCF4D9]">
         <UserContext.Provider value={{ currentUser, setCurrentUser }}>
           <Header />
           <Navigation />

@@ -29,21 +29,30 @@ const ChangeUser = () => {
   if (isLoading) return <p className="loading-errors">Loading Users...</p>;
   return (
     <section>
-      <ul className="user">
+      <ul className="p-5  grid gap-2 grid-cols-4 grid-rows-3">
         {users.map((user) => {
           return (
-            <li key={user.username}>
-              <h2> {user.username}</h2>
-              <img
-                className="username_images"
-                src={user.avatar_url}
-                alt={user.username}
-              />
-              <p>{user.kudos}</p>
-              <button onClick={() => setCurrentUser(user)}>
-                Select this user!
-              </button>
-            </li>
+            <>
+              <li
+                key={user.username}
+                className="text-xl tracking-tight font-medium text-justify rounded-xl p-3  bg-[#F8B595]"
+              >
+                <h2> {user.username}</h2>
+                <img
+                  className="p-3 w-24 flex "
+                  src={user.avatar_url}
+                  alt={user.username}
+                />
+                <p>{user.kudos}</p>
+                <button
+                  className="bg-[#C06C84] font-mono  rounded-xl p-2 "
+                  onClick={() => setCurrentUser(user)}
+                >
+                  Select this user!
+                </button>
+              </li>
+              <br />
+            </>
           );
         })}
       </ul>
