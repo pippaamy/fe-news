@@ -49,38 +49,35 @@ const Comments = ({ article }) => {
         <br />
         {comments.map((comment) => {
           return (
-            <>
-              <li
-                className="text-lg tracking-tight font-medium text-justify rounded-xl p-3  bg-[#F8B595]"
-                key={comment.comment_id}
-              >
-                <h2>{comment.author}</h2>
+            <li
+              className="text-lg tracking-tight font-medium text-justify rounded-xl p-3  bg-[#F8B595]"
+              key={comment.comment_id}
+            >
+              <h2>{comment.author}</h2>
 
-                <p>{comment.body}</p>
-                <p>{dateFormat(comment.created_at, "mmmm dS, yyyy")}</p>
-                {currentUser.username !== comment.author && (
-                  <CommentVotes comment={comment} />
-                )}
-                {currentUser.username === comment.author && (
-                  <>
-                    <img
-                      className="p-3 w-24 flex "
-                      src={currentUser.avatar_url}
-                      alt={currentUser.username}
-                    ></img>
-                    <p className="votes">Votes : {comment.votes}</p>
-                    <button
-                      className="bg-[#C06C84] font-mono  rounded-xl p-2"
-                      id={comment.comment_id}
-                      onClick={handleClick(comment)}
-                    >
-                      Delete
-                    </button>
-                  </>
-                )}
-              </li>
-              <br />
-            </>
+              <p>{comment.body}</p>
+              <p>{dateFormat(comment.created_at, "mmmm dS, yyyy")}</p>
+              {currentUser.username !== comment.author && (
+                <CommentVotes comment={comment} />
+              )}
+              {currentUser.username === comment.author && (
+                <>
+                  <img
+                    className="p-3 w-24 flex "
+                    src={currentUser.avatar_url}
+                    alt={currentUser.username}
+                  ></img>
+                  <p className="votes">Votes : {comment.votes}</p>
+                  <button
+                    className="bg-[#C06C84] font-mono  rounded-xl p-2"
+                    id={comment.comment_id}
+                    onClick={handleClick(comment)}
+                  >
+                    Delete
+                  </button>
+                </>
+              )}
+            </li>
           );
         })}
       </ul>
