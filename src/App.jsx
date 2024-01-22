@@ -27,7 +27,7 @@ function App() {
 
   return (
     <>
-      <div className="bg-[#FCF4D9]">
+      <div className="min-h-screen bg-[#FCF4D9]">
         <UserContext.Provider value={{ currentUser, setCurrentUser }}>
           <Header />
           <Navigation />
