@@ -22,7 +22,7 @@ const Sort = ({ setSort, sort, order, setOrder }) => {
   return (
     <div>
       <select
-        className="p-2 inline-flex  justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 btn m-1"
         value={sort}
         onChange={handleChange}
       >
@@ -32,7 +32,7 @@ const Sort = ({ setSort, sort, order, setOrder }) => {
         <option value="votes">Votes</option>
       </select>
       <select
-        className="p-2 inline-flex  justify-center gap-x-1.5 rounded-md bg-white px-3 py-2 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
+        className="dropdown-content z-[1] menu p-2 shadow bg-base-100 rounded-box w-52 btn m-1"
         value={order}
         onChange={handleOrder}
       >

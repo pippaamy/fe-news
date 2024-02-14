@@ -21,7 +21,7 @@ const CommentBox = ({ article, setNewComment }) => {
       .catch(() => {
         setNewComment({
           author: currentUser.username,
-          body: "Please try again",
+          body: "Oops. Please try again",
         });
       });
 
@@ -29,15 +29,24 @@ const CommentBox = ({ article, setNewComment }) => {
   };
   return (
     <section>
-      <form onSubmit={postComment}>
+      <form
+        className=" flex justify-center items-center rounded-xl"
+        onSubmit={postComment}
+      >
         <textarea
-          placeholder="Leave a comment!"
+          placeholder="  Leave a comment!  "
           id="commentBox"
           name="body"
           rows="6"
-          cols="50"
+          cols="100"
         ></textarea>
-        <button type="submit">Submit</button>
+        <br />
+        <button
+          className=" bg-[#F67280] font-mono  rounded-xl p-3"
+          type="submit"
+        >
+          Submit
+        </button>
       </form>
     </section>
   );

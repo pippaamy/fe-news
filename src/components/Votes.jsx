@@ -21,10 +21,10 @@ const Votes = ({ article }) => {
   };
 
   return (
-    <div>
-      <p className="votes">Votes : {article.votes + votes}</p>
+    <div className="flex">
+      <p className=" p-5 text-xl font-bold">❤️ : {article.votes + votes}</p>
       <button
-        className="bg-[#F67280] font-mono  rounded-xl p-2"
+        className="bg-[#F67280] font-mono  rounded-xl p-4"
         disabled={disabled}
         onClick={() => {
           upVote(article.article_id, true);
@@ -32,7 +32,9 @@ const Votes = ({ article }) => {
       >
         Like
       </button>
-      <p>{err}</p>
+      <p className="p-2 text-md tracking-tight font-bold text-justify ">
+        {err}
+      </p>
     </div>
   );
 };
