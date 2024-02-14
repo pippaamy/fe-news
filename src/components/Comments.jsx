@@ -2,7 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import { deleteComment, getComments } from "../api";
 import { useParams } from "react-router-dom";
 import dateFormat from "dateformat";
-import NewComment from "./NewComment";
+import NewComment from "./newComment";
 import CommentBox from "./CommentBox";
 import { UserContext } from "./User";
 import CommentVotes from "./CommentVotes";
