@@ -42,7 +42,11 @@ const ArticleCard = () => {
           <br />
           <p>{article.body}</p>
           <div className=" flex justify-center items-center ">
-            <img className="w-100 rounded-3xl" src={article.article_img_url} />
+            <img
+              className="w-100 rounded-3xl"
+              src={article.article_img_url}
+              alt="article image"
+            />
           </div>
           <div className="flex ...">
             <p className="flex-1 ...">

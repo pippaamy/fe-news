@@ -65,6 +65,7 @@ const Articles = ({ topics, setTopics }) => {
                   <img
                     className="w-100 rounded-3xl"
                     src={article.article_img_url}
+                    alt="article image"
                   />
                 </div>
                 <section className="flex ...">
