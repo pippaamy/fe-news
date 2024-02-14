@@ -40,7 +40,7 @@ const PostArticle = ({ topics }) => {
         className="rounded-xl p-3  bg-[#F8B595] -mx-4 mb-8"
         onSubmit={handleSubmit}
       >
-        <div class="">
+        <div>
           <label className=""> Article Title: </label>
           <input
             placeholder="Write an title..."
@@ -49,7 +49,7 @@ const PostArticle = ({ topics }) => {
           ></input>
         </div>
 
-        <div class="">
+        <div>
           <label className="">Article Body:</label>
           <textarea
             className="block py-10 w-full text-sm text-gray-900 rounded-lg border border-gray-300 "
@@ -57,7 +57,7 @@ const PostArticle = ({ topics }) => {
             onChange={handleBodyChange}
           ></textarea>
         </div>
-        <div class="">
+        <div>
           <label className=""> Article Image: </label>
           <input
             placeholder="Write an image url..."
