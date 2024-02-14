@@ -36,30 +36,43 @@ const Articles = ({ topics, setTopics }) => {
     );
   return (
     <section className="p-5">
-      <Topic
-        setChosenTopic={setChosenTopic}
-        chosenTopic={chosenTopic}
-        sort={sort}
-        order={order}
-        topics={topics}
-        setTopics={setTopics}
-      />
-      <Sort sort={sort} setSort={setSort} order={order} setOrder={setOrder} />
+      <div className="p-5 flex">
+        <Topic
+          setChosenTopic={setChosenTopic}
+          chosenTopic={chosenTopic}
+          sort={sort}
+          order={order}
+          topics={topics}
+          setTopics={setTopics}
+        />
+        <Sort sort={sort} setSort={setSort} order={order} setOrder={setOrder} />
+        <br />
+      </div>
 
       <ul>
         {articles.map((article) => {
           return (
-            <Link to={`/articles/${article.article_id}`}>
-              <li
-                key={article.article_id}
-                className="text-xl tracking-tight font-medium text-justify rounded-xl p-3  bg-[#F8B595]"
-              >
-                <h2>{article.title}</h2>
-                <img className="image" src={article.article_img_url} />
-                <p className="date">
-                  {dateFormat(article.created_at, "mmmm dS, yyyy")}
-                </p>
-                <p className="author">{article.author}</p>
+            <Link
+              to={`/articles/${article.article_id}`}
+              key={article.article_id}
+            >
+              <li className="text-xl tracking-tight font-medium text-justify rounded-xl p-3  bg-[#F8B595]">
+                <h2 className="text-center text-decoration-line: underline font-bold">
+                  {article.title}
+                </h2>
+                <br />
+                <div className=" flex justify-center items-center">
+                  <img
+                    className="w-100 rounded-3xl"
+                    src={article.article_img_url}
+                  />
+                </div>
+                <section className="flex ...">
+                  <p className="flex-1 ...">
+                    {dateFormat(article.created_at, "mmmm dS, yyyy")}
+                  </p>
+                  <p className="flex-2 ...">{article.author}</p>
+                </section>
               </li>
               <br />
             </Link>

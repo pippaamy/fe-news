@@ -22,7 +22,8 @@ const CommentVotes = ({ comment }) => {
 
   return (
     <div>
-      <p className="votes">Votes : {comment.votes + votes}</p>
+      <br />
+      <p className="font-bold">Votes : {comment.votes + votes}</p>
       <button
         className="bg-[#F67280] font-mono  rounded-xl p-2"
         disabled={disabled}

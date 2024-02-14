@@ -24,11 +24,9 @@ const Navigation = () => {
         <h2 className="font-mono ">
           You are logged in as {currentUser.username}
         </h2>
-        <img
-          className="p-3 w-24 flex justify-right"
-          src={currentUser.avatar_url}
-          alt={currentUser.username}
-        />
+        <div className="ml-auto w-20 ">
+          <img src={currentUser.avatar_url} alt={currentUser.username} />
+        </div>
       </section>
     </section>
   );

@@ -1,9 +1,9 @@
 import axios from "axios";
 
-export const getArticles = (topic = "", sortby, order) => {
+export const getArticles = (topic = "", sortby, order, p) => {
   return axios
     .get(
-      `https://my-news-2d2d.onrender.com/api/articles?topic=${topic}&sort_by=${sortby}&order=${order}`
+      `https://my-news-2d2d.onrender.com/api/articles?topic=${topic}&sort_by=${sortby}&order=${order}&p=${p}`
     )
     .then(({ data }) => {
       return data.articles;
