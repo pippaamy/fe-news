@@ -25,7 +25,7 @@ const Navigation = () => {
           You are logged in as {currentUser.username}
         </h2>
         <div className="ml-auto w-20 ">
-          <img src={currentUser.avatar_url} alt={currentUser.username} />
+          <img src={currentUser.avatar_url} alt="username" />
         </div>
       </section>
     </section>
