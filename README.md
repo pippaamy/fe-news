@@ -1,6 +1,6 @@
 # Good News App
 
-This is a social news site, similar to reddit. NC News contains, articles are divided into topics, and each article allows users to upvote or downvotes using the API. Users can also add or delete comments on an article.
+This is a social news site, similar to reddit. NC News contains, articles are divided into topics, and each article allows users to upvote using the API. Users can also add or delete comments on an article.
 
 https://goodnews101.netlify.app/
 
