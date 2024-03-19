@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from "react";
 import { getUsers } from "../api";
 import { UserContext } from "./User";
+import Loading from "./Loading";
 
 const ChangeUser = () => {
   const [users, setUsers] = useState([]);
@@ -22,11 +23,11 @@ const ChangeUser = () => {
 
   if (err)
     return (
-      <p className="loading-error">
+      <p className="text-xl tracking-tight font-medium">
         Sorry there has been a problem, please try again!
       </p>
     );
-  if (isLoading) return <p className="loading-errors">Loading Users...</p>;
+  if (isLoading) <Loading />;
   return (
     <section>
       <ul className="grid grid-cols-3 gap-4 p-5">

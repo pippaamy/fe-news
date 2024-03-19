@@ -4,6 +4,7 @@ import { getArticleById } from "../api";
 import dateFormat from "dateformat";
 import Comments from "./Comments";
 import Votes from "./Votes";
+import Loading from "./Loading";
 
 const ArticleCard = () => {
   const { article_id } = useParams();
@@ -26,11 +27,11 @@ const ArticleCard = () => {
 
   if (err)
     return (
-      <p className="loading-error">
+      <p className="text-xl tracking-tight font-medium">
         This article does not exist, please try another
       </p>
     );
-  if (isLoading) return <p className="loading-errors">Loading Article...</p>;
+  if (isLoading) return <Loading />;
 
   return (
     <>

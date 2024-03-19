@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import dateFormat from "dateformat";
 import Topic from "./Topic";
 import Sort from "./Sort";
+import Loading from "./Loading";
 
 const Articles = ({ topics, setTopics }) => {
   const [articles, setArticles] = useState([]);
@@ -27,10 +28,10 @@ const Articles = ({ topics, setTopics }) => {
       });
   }, [chosenTopic, sort, order, page, limit]);
 
-  if (isLoading) return <p className="loading-errors">Loading Articles...</p>;
+  if (isLoading) return <Loading />;
   if (err)
     return (
-      <p className="loading-errors">
+      <p className="text-xl tracking-tight font-medium">
         Sorry there has been a problem, please try again!
       </p>
     );

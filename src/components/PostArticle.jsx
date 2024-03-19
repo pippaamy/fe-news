@@ -26,11 +26,11 @@ const PostArticle = ({ topics }) => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    postArticle(currentUser, title, body, pickedTopic, articleImg).then(
-      (article) => {
+    postArticle(currentUser, title, body, pickedTopic, articleImg)
+      .then((article) => {
         navigate(`/articles/${article.article_id}`);
-      }
-    );
+      })
+      .catch(() => {});
   };
   if (!topics) return <p>Loading...</p>;
   return (

@@ -6,6 +6,7 @@ import NewComment from "./newComment";
 import CommentBox from "./CommentBox";
 import { UserContext } from "./User";
 import CommentVotes from "./CommentVotes";
+import Loading from "./Loading";
 
 const Comments = ({ article }) => {
   const [comments, setComments] = useState([]);
@@ -35,7 +36,7 @@ const Comments = ({ article }) => {
       setIsLoading(false);
     });
   }, [article_id]);
-  if (isLoading) return <p className="loading-errors">Loading comments...</p>;
+  if (isLoading) return <Loading />;
   return (
     <section>
       <CommentBox
